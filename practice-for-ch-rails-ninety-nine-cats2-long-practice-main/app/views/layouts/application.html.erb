@@ -16,6 +16,14 @@
       <h1><a href="<%= cats_url %>">99 Cats</a></h1>
     </nav>
     <main>
+      <% if current_user %>
+        <h3>Hello, <%= current_user.username %> </h3>
+        <a href="<%= sessions_url %>" >Logout</a>
+      <% else %> 
+        <a href="<%= new_sessions_url %>">Login</a>
+        <a href="<%= new_user_url %>">Signup</a>
+      <% end %>
+
       <%= yield %>
     </main>
   </body>
